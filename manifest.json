@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "NoYouTubeRecommendations Plugin",
+  "description": "Removes all content from YouTube home page, for those who don't like those pesky personalized recommendations or don't want people easily creeping on your history.",
+  "version": "1.0",
+  "background": {
+    "persistent": true,
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "app.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/"
+      ],
+      "css": [
+        "hide.css"
+      ]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "https://www.youtube.com/*"
+  ]
+}
